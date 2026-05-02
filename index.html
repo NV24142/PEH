@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PEH Quiz – Practical Ethical Hacking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== WELCOME SCREEN ===== -->
+  <div id="welcome-screen" class="screen active">
+    <div class="card welcome-card">
+      <div class="logo-icon">🛡️</div>
+      <h1>PEH Quiz</h1>
+      <p class="subtitle">Practical Ethical Hacking</p>
+      <p class="description">
+        Test your knowledge of penetration testing techniques.<br/>
+        <span class="ar">اختبر معلوماتك في اختبار الاختراق العملي.</span>
+      </p>
+      <div class="meta-row">
+        <span class="badge">90 Questions</span>
+        <span class="badge">30 sec / question</span>
+        <span class="badge">Bilingual</span>
+      </div>
+      <button id="start-btn" class="btn-primary">Start Quiz / ابدأ الاختبار</button>
+    </div>
+  </div>
+
+  <!-- ===== QUIZ SCREEN ===== -->
+  <div id="quiz-screen" class="screen">
+    <div class="quiz-header">
+      <div class="progress-info">
+        <span id="question-counter">Question 1 of 90</span>
+        <span id="score-tracker">Score: 0</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+    </div>
+
+    <div class="card quiz-card">
+      <!-- Timer -->
+      <div class="timer-wrap">
+        <svg class="timer-ring" viewBox="0 0 44 44">
+          <circle class="timer-bg" cx="22" cy="22" r="18"/>
+          <circle id="timer-arc" class="timer-arc" cx="22" cy="22" r="18"/>
+        </svg>
+        <span id="timer-text" class="timer-text">30</span>
+      </div>
+
+      <!-- Question -->
+      <div id="question-text" class="question-text"></div>
+
+      <!-- Options -->
+      <div id="options-container" class="options-container"></div>
+
+      <!-- Feedback -->
+      <div id="feedback" class="feedback hidden">
+        <div id="feedback-icon" class="feedback-icon"></div>
+        <div id="feedback-body" class="feedback-body">
+          <p id="feedback-en" class="feedback-en"></p>
+          <p id="feedback-ar" class="feedback-ar"></p>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="nav-row">
+        <button id="next-btn" class="btn-primary hidden">
+          Next Question <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== RESULTS SCREEN ===== -->
+  <div id="results-screen" class="screen">
+    <div class="card results-card">
+      <div id="results-icon" class="results-icon">🏆</div>
+      <h2 id="results-title">Quiz Complete!</h2>
+      <p id="results-subtitle" class="results-subtitle"></p>
+
+      <div class="score-ring-wrap">
+        <svg viewBox="0 0 120 120" class="score-ring">
+          <defs>
+            <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#4f8ef7"/>
+              <stop offset="100%" stop-color="#7b5cf5"/>
+            </linearGradient>
+          </defs>
+          <circle class="score-bg" cx="60" cy="60" r="52"/>
+          <circle id="score-arc" class="score-arc" cx="60" cy="60" r="52"/>
+        </svg>
+        <div class="score-center">
+          <span id="score-pct" class="score-pct">0%</span>
+          <span id="score-frac" class="score-frac">0/90</span>
+        </div>
+      </div>
+
+      <div class="results-stats">
+        <div class="stat correct-stat">
+          <span class="stat-num" id="stat-correct">0</span>
+          <span class="stat-label">Correct ✓</span>
+        </div>
+        <div class="stat wrong-stat">
+          <span class="stat-num" id="stat-wrong">0</span>
+          <span class="stat-label">Wrong ✗</span>
+        </div>
+        <div class="stat skipped-stat">
+          <span class="stat-num" id="stat-skipped">0</span>
+          <span class="stat-label">Skipped ⏱</span>
+        </div>
+      </div>
+
+      <p id="results-grade" class="results-grade"></p>
+
+      <button id="restart-btn" class="btn-primary">Restart Quiz / أعد الاختبار</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
