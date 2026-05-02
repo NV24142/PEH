@@ -419,5 +419,4 @@ body {
   .stat { padding: 12px 16px; min-width: 78px; }
 }
 
-/* SVG gradient for score arc */
-svg defs { display: block; }
+

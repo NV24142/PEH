@@ -4,6 +4,8 @@
    ============================================================ */
 
 const TIMER_SECONDS = 30;
+const TIMER_RADIUS  = 18;   // matches r="18" on #timer-arc SVG circle
+const SCORE_RADIUS  = 52;   // matches r="52" on #score-arc SVG circle
 
 // ─── Quiz Data ────────────────────────────────────────────────────────────────
 const quizData = [
@@ -1266,7 +1268,8 @@ let shuffledOpts   = [];   // shuffled option indices for current question
 let answered       = false;
 let timerInterval  = null;
 let timeLeft       = TIMER_SECONDS;
-const CIRCUMFERENCE = 2 * Math.PI * 18; // r=18 → 113.1
+const CIRCUMFERENCE = 2 * Math.PI * TIMER_RADIUS;
+const SCORE_CIRC    = 2 * Math.PI * SCORE_RADIUS;
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 function shuffle(arr) {
@@ -1459,7 +1462,6 @@ function showResults() {
 
   // Animated score arc
   const scoreArc    = document.getElementById('score-arc');
-  const SCORE_CIRC  = 2 * Math.PI * 52; // r=52 → 326.7
   setTimeout(() => {
     scoreArc.style.strokeDashoffset = SCORE_CIRC * (1 - pct / 100);
   }, 100);
@@ -1492,7 +1494,6 @@ function startQuiz() {
 
   // Reset score arc
   const scoreArc   = document.getElementById('score-arc');
-  const SCORE_CIRC = 2 * Math.PI * 52;
   scoreArc.style.strokeDashoffset = SCORE_CIRC;
 
   showScreen('quiz-screen');
